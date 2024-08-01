@@ -7,15 +7,15 @@
 
 
 $color1: #F6F5F4;
-$color2: #94a9fc;
-$color3: #42598e;
+$color2: #14F1D9;
+$color3: #519AA3;
 $color4: #7F8994;
-$color5: #161a25;
+$color5: #181D30;
 $superdark: $color5;
 
 $theme-colors: (
   "primary": $color2,
-  "info": #161a25,
+  "info": #181d30,
   "success": #4ea969,
   "warning": #cb9931,
   "danger": #f44336,
@@ -202,7 +202,7 @@ body {
 }
 
 @include media-breakpoint-down(md) {
-  .sec-badge {
+  .kas-badge {
     width: 0;
     height: 0;
     display: none;
@@ -581,7 +581,7 @@ body {
   justify-content: space-around;
 }
 
-.secBlock {
+.kasBlock {
   color: $color1;
   background-color: $color5;
   border: 1px solid $color4;
@@ -610,7 +610,7 @@ body {
   max-width: 1px;
 }
 
-.secBlockHeader {
+.kasBlockHeader {
   font-weight: bold;
   font-size: large;
 }

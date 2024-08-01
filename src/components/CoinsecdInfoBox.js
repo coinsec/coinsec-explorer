@@ -9,7 +9,7 @@ const CoinsecdInfoBox = () => {
     const [data, setData] = useState({});
 
     async function updateData() {
-        await fetch('https://api.kaspa.org/info/kaspad')
+        await fetch('https://testnet-api.coinsec.network/info/coinsecd')
             .then((response) => response.json())
             .then(d => setData(d))
             .catch(err => console.log("Error", err))

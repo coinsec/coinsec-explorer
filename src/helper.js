@@ -9,7 +9,7 @@ export function numberWithCommas(x) {
     return parts.join(".");
 }
 
-export function floatToStr(floatNo, maxPrecision = 9) {
+export function floatToStr(floatNo, maxPrecision = 8) {
     return parseFloat(floatNo.toPrecision(maxPrecision)).toString()
 }
 

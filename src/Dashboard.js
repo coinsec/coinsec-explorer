@@ -50,7 +50,7 @@ function Dashboard() {
       })
     }
 
-    if (v.startsWith("coinsec:")) {
+    if (v.startsWith("coinsec:") || v.startsWith("coinsectest:")) {
       navigate(`/addresses/${v}`)
     }
 
@@ -63,15 +63,15 @@ function Dashboard() {
   return (
     <div>
       <Modal show={showLoadingModal} animation={false} centered>
-        <Modal.Body className="d-flex flex-row justify-content-center" style={{backgroundColor: "#161a25"}}>
+        <Modal.Body className="d-flex flex-row justify-content-center" style={{backgroundColor: "#181D30"}}>
           <Spinner animation="border" variant="primary" size="xl" /></Modal.Body>
       </Modal>
       <div className="row1">
         <Container className="firstRow webpage" fluid>
           <Row>
             <Col md={12} className='d-flex flex-row justify-content-start text-light d-xs-none align-items-center'>
-              <img className="big-coinsec-icon" src="/c-icon-glow.png" />
-              <div className="bigfont sec-badge">
+              <img className="big-coinsec-icon" src="/k-icon-glow.png" />
+              <div className="bigfont kas-badge">
                 COINSEC<br />EXPLORER
               </div>
             </Col>
@@ -92,12 +92,12 @@ function Dashboard() {
       <div className="row2">
         <Container className="secondRow webpage" fluid>
           <Row>
-            <Col sm={12} md={6} xl={4}><div className="infoBox">
+            <Col sm={12} md={6} xl={3}><div className="infoBox">
               <CoinsupplyBox />
             </div></Col>
-            <Col sm={12} md={6} xl={4}><div className="infoBox"><BlockDAGBox /></div></Col>
-            <Col sm={12} md={6} xl={4}><div className="infoBox"><CoinsecdInfoBox /></div></Col>
-            {/*<Col sm={12} md={6} xl={3}><div className="infoBox"><MarketDataBox /></div></Col>*/}
+            <Col sm={12} md={6} xl={3}><div className="infoBox"><BlockDAGBox /></div></Col>
+            <Col sm={12} md={6} xl={3}><div className="infoBox"><CoinsecdInfoBox /></div></Col>
+            <Col sm={12} md={6} xl={3}><div className="infoBox"><MarketDataBox /></div></Col>
           </Row>
         </Container>
       </div>

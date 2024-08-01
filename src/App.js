@@ -44,12 +44,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-const socket = io("wss://api.kaspa.org", {
+const socket = io("wss://testnet-api.coinsec.network", {
   path: '/ws/socket.io'
 });
 
 function App() {
-  const [price, setPrice] = useState("")
+  const [price, setPrice] = useState(0)
   const [marketData, setMarketData] = useState("")
 
   const [blocks, setBlocks] = useState([]);
@@ -81,7 +81,7 @@ function App() {
         console.log("hier")
       })
     }
-    if (v.startsWith("coinsec:")) {
+    if (v.startsWith("coinsec:") || v.startsWith("coinsectest:")) {
       navigate(`/addresses/${v}`)
     }
 
@@ -89,12 +89,12 @@ function App() {
   }
 
   const updatePrice = () => {
-    fetch(`https://api.kaspa.org/info/market-data`, {
+    fetch(`https://testnet-api.coinsec.network/info/market-data`, {
       headers: { "Cache-Control": "no-cache" }
     })
       .then(response => response.json())
       .then(data => {
-        setPrice(data['current_price']['usd'].toFixed(4));
+        setPrice(data['current_price'] ? data['current_price']['usd'].toFixed(4) : 0);
         setMarketData(data);
       })
       .catch(r => console.log(r))
@@ -162,7 +162,7 @@ function App() {
                   <Navbar.Brand >
                     <Link to="/">
                       <div className="navbar-brand">
-                        <img className="shake" src="/c-icon-glow.png" style={{ "marginRight": ".5rem", width: "4rem", height: "4rem" }} />
+                        <img className="shake" src="/k-icon-glow.png" style={{ "marginRight": ".5rem", width: "4rem", height: "4rem" }} />
                         <div className="navbar-brand-text text-start">COINSEC<br />EXPLORER</div>
                       </div>
                     </Link>
@@ -176,7 +176,7 @@ function App() {
                     <Nav.Item><NavLink className="nav-link fs-5" onClick={closeMenuIfNeeded} to={"/blocks"}>Blocks</NavLink></Nav.Item>
                     <Nav.Item><NavLink className="nav-link fs-5" onClick={closeMenuIfNeeded} to={"/txs"}>Transactions</NavLink></Nav.Item>
                   </Nav>
-                  {/*<div className='ms-auto navbar-price'>${price} <span className="text-light">/ SEC</span></div>*/}
+                  <div className='ms-auto navbar-price'>${price} <span className="text-light">/ KAS</span></div>
                 </Navbar.Collapse>
               </Container>
             </Navbar>
@@ -211,13 +211,13 @@ function App() {
                   Made with <font className="fs-5" color="red">♥</font> by Coinsec developers
                   <span className="ms-3">
                     <OverlayTrigger placement="left" overlay={<Tooltip id="github">Source code</Tooltip>}>
-                      <a className="blockinfo-link" href="https://github.com/coinsec/coinsec-explorer" target="_blank"><FaGithub size="1.3rem" /></a>
+                      <a className="blockinfo-link" href="https://github.com/lAmeR1/coinsec-explorer" target="_blank"><FaGithub size="1.3rem" /></a>
                     </OverlayTrigger>
                     <OverlayTrigger placement="right" overlay={<Tooltip id="donate">Donation address</Tooltip>}>
                       <Link className="blockinfo-link ms-3" to="/addresses/coinsec:qqkqkzjvr7zwxxmjxjkmxxdwju9kjs6e9u82uh59z07vgaks6gg62v8707g73"><BiDonateHeart size="1.3rem" /></Link>
                     </OverlayTrigger>
                     <OverlayTrigger placement="right" overlay={<Tooltip id="github">REST-API server</Tooltip>}>
-                      <a className="blockinfo-link ms-3" href="https://api.kaspa.org/" target="_blank"><SiFastapi size="1.3rem" /></a>
+                      <a className="blockinfo-link ms-3" href="https://testnet-api.coinsec.network/" target="_blank"><SiFastapi size="1.3rem" /></a>
                     </OverlayTrigger>
                   </span>
                   <span className="px-3 build">|</span>
@@ -233,13 +233,13 @@ function App() {
                 <Col>
                   <span className="ms-2">
                     <OverlayTrigger placement="left" overlay={<Tooltip id="github">Source code</Tooltip>}>
-                      <a className="blockinfo-link" href="https://github.com/coinsec/coinsec-explorer" target="_blank"><FaGithub size="1.1rem" /></a>
+                      <a className="blockinfo-link" href="https://github.com/lAmeR1/coinsec-explorer" target="_blank"><FaGithub size="1.1rem" /></a>
                     </OverlayTrigger>
                     <OverlayTrigger placement="right" overlay={<Tooltip id="donate">Donation address</Tooltip>}>
                       <Link className="blockinfo-link ms-2" to="/addresses/coinsec:qqkqkzjvr7zwxxmjxjkmxxdwju9kjs6e9u82uh59z07vgaks6gg62v8707g73"><BiDonateHeart size="1.1rem" /></Link>
                     </OverlayTrigger>
                     <OverlayTrigger placement="right" overlay={<Tooltip id="github">REST-API server</Tooltip>}>
-                      <a className="blockinfo-link ms-2" href="https://api.kaspa.org/" target="_blank"><SiFastapi size="1.1rem" /></a>
+                      <a className="blockinfo-link ms-2" href="https://testnet-api.coinsec.network/" target="_blank"><SiFastapi size="1.1rem" /></a>
                     </OverlayTrigger>
                   </span>
                 </Col>
