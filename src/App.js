@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-const socket = io("wss://testnet-socket.coinsec.network", {
+const socket = io("wss://testnet-api.coinsec.network", {
   path: '/ws/socket.io'
 });
 
