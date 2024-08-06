@@ -60,7 +60,7 @@ const MarketDataBox = () => {
                 </tr>
                 <tr>
                     <td className="cardBoxElement">Price</td>
-                    <td>$ {price ? price : 'N/A'} / KAS</td>
+                    <td>$ {price ? price : 'N/A'} / SEC</td>
                 </tr>
                 <tr>
                     <td style={{ fontSize: "small" }} className="cardBoxElement" align="right">1h %</td>

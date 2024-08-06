@@ -262,14 +262,14 @@ const AddressInfo = () => {
     //     <table className="blockinfo-table">
     //         <tr className="trow">
     //             <td>Balance</td>
-    //             <td>{addressBalance/100000000} KAS</td>
+    //             <td>{addressBalance/100000000} SEC</td>
     //         </tr>
     //         <tr>
     //             <td>UTXOs</td>
     //             <td>{utxos ? <ul>
     //                 {utxos
     //                 .sort((a,b) => {return b.utxoEntry.blockDaaScore - a.utxoEntry.blockDaaScore})
-    //                 .map(x => <li>{x.utxoEntry.amount/100000000} KAS ({x.outpoint.transactionId})</li>)}
+    //                 .map(x => <li>{x.utxoEntry.amount/100000000} SEC ({x.outpoint.transactionId})</li>)}
     //             </ul> : <>Loading UTXOs <Spinner animation="border" role="status" /></>}</td>
     //         </tr>
     //     </table>
@@ -306,7 +306,7 @@ const AddressInfo = () => {
                 <Col sm={6} md={4}>
                     <div className="addressinfo-header mt-4">balance</div>
                     <div className="utxo-value d-flex">
-                        {addressBalance !== undefined ? <div className="utxo-amount">+{numberWithCommas(addressBalance / 100000000)} KAS</div> : <Spinner animation="border" variant="primary" />}</div>
+                        {addressBalance !== undefined ? <div className="utxo-amount">+{numberWithCommas(addressBalance / 100000000)} SEC</div> : <Spinner animation="border" variant="primary" />}</div>
                 </Col>
                 <Col sm={6} md={4}>
                     <div className="addressinfo-header mt-4 ms-sm-5">UTXOs count</div>
@@ -381,8 +381,8 @@ const AddressInfo = () => {
                             <div className="utxo-value">
                                 <Link className="blockinfo-link" to={`/txs/${x.transaction_id}`} >
                                     {getAmount(x.outputs, x.inputs) > 0 ?
-                                        <span className="utxo-amount">+{numberWithCommas(floatToStr(getAmount(x.outputs, x.inputs)))}&nbsp;KAS</span> :
-                                        <span className="utxo-amount-minus">{numberWithCommas(floatToStr(getAmount(x.outputs, x.inputs)))}&nbsp;KAS</span>}
+                                        <span className="utxo-amount">+{numberWithCommas(floatToStr(getAmount(x.outputs, x.inputs)))}&nbsp;SEC</span> :
+                                        <span className="utxo-amount-minus">{numberWithCommas(floatToStr(getAmount(x.outputs, x.inputs)))}&nbsp;SEC</span>}
                                 </Link>
                             </div>
                         </Col>
@@ -404,7 +404,7 @@ const AddressInfo = () => {
                                                         <span className={getAddrFromOutputs(txsInpCache[x.previous_outpoint_hash]["outputs"], x.previous_outpoint_index) == addr ? "highlight-addr" : ""}>{getAddrFromOutputs(txsInpCache[x.previous_outpoint_hash]["outputs"], x.previous_outpoint_index)}</span>
                                                     </Link>
                                                 </Col>
-                                                <Col xs={5}><span className="block-utxo-amount-minus">-{numberWithCommas(getAmountFromOutputs(txsInpCache[x.previous_outpoint_hash]["outputs"], x.previous_outpoint_index))}&nbsp;KAS</span></Col></Row></> : <li key={`${x.previous_outpoint_hash}${x.previous_outpoint_index}`}>{x.previous_outpoint_hash} #{x.previous_outpoint_index}</li>
+                                                <Col xs={5}><span className="block-utxo-amount-minus">-{numberWithCommas(getAmountFromOutputs(txsInpCache[x.previous_outpoint_hash]["outputs"], x.previous_outpoint_index))}&nbsp;SEC</span></Col></Row></> : <li key={`${x.previous_outpoint_hash}${x.previous_outpoint_index}`}>{x.previous_outpoint_hash} #{x.previous_outpoint_index}</li>
                                     }) : "COINBASE (New coins)"}
 
                                 </div>
@@ -420,7 +420,7 @@ const AddressInfo = () => {
                                                 </span>
                                             </Link>
                                         </Col>
-                                        <Col xs={5}><span className="block-utxo-amount">+{numberWithCommas(x.amount / 100000000)}&nbsp;KAS</span></Col></Row>)}
+                                        <Col xs={5}><span className="block-utxo-amount">+{numberWithCommas(x.amount / 100000000)}&nbsp;SEC</span></Col></Row>)}
                                 </div>
                             </Col>
                             <Col md={12}>
@@ -490,7 +490,7 @@ const AddressInfo = () => {
                         </Col>
                         <Col sm={6} md={4}>
                             <div className="utxo-header mt-3">amount</div>
-                            <div className="utxo-value d-flex flex-row"><div className="utxo-amount">+{numberWithCommas(x.utxoEntry.amount / 100000000)} KAS</div></div>
+                            <div className="utxo-value d-flex flex-row"><div className="utxo-amount">+{numberWithCommas(x.utxoEntry.amount / 100000000)} SEC</div></div>
                         </Col>
                         <Col sm={6} md={4}>
                             <div className="utxo-header mt-3">value</div>
